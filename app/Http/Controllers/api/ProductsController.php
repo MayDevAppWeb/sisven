@@ -15,6 +15,10 @@ class ProductsController extends Controller
     public function index()
     {
         //
+        $products = DB::table('products')
+        ->select('products.*')
+        ->get();
+    return json_encode(['products' => $products]);
     }
 
     /**
