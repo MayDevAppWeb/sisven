@@ -69,5 +69,11 @@ class PayModeController extends Controller
     public function destroy( $id)
     {
         //
+        $pay_mode = Sisven::find($id);
+        $pay_mode->delete();
+        $pay_mode = DB::table('pay_mode')
+        ->select('pay_mode.*')
+        ->get();
+        return json_encode(['pay_mode'=>$pay_mode]);
     }
 }
