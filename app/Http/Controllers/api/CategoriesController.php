@@ -52,6 +52,14 @@ class CategoriesController extends Controller
     public function update(Request $request,  $id)
     {
         //
+        $categories = Sisven::find($id);
+        $categories->id = $request->id;
+        $categories->name = $request->name;
+        $categories->description = $request->description;
+        $categories->created_at = $request->created_at;
+        $categories->updated_at = $request->updated_at;
+        $categories->save();
+        return json_encode(['categories'=>$categories]);
     }
 
     /**
