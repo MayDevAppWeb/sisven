@@ -27,6 +27,15 @@ class ProductsController extends Controller
     public function store(Request $request)
     {
         //
+        $products = new Sisven();
+        $products->id = $request->id;
+        $products->name = $request->name;
+        $products->price = $request->price;
+        $products->stock = $request->stock;
+        $products->category_id = $request->category_id;
+        $products->created_at = $request->created_at;
+        $products->updated_at = $request->updated_at;
+        return json_encode(['products' => $products]);
 
     }
 
