@@ -26,7 +26,18 @@ class CustomersController extends Controller
     public function store(Request $request)
     {
         //
-
+        $customer = new Sisven();
+        $customer->id = $request->id;
+        $customer->document_number = $request->document_number;
+        $customer->first_name = $request->first_name;
+        $customer->last_name = $request->last_name;
+        $customer->address = $request->address;
+        $customer->birthday = $request->birthday;
+        $customer->phone_number = $request->phone_number;
+        $customer->email = $request->email;
+        $customer->created_at = $request->created_at;
+        $customer->updated_at = $request->updated_at;
+        return json_encode(['customer'=>$customer]);
 
     }
 
