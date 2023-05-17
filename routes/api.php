@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\api\CategoriesController;
 use App\Http\Controllers\api\CustomersController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -32,6 +33,23 @@ Route::put('/customers/{id}', [CustomersController::class, 'update'])
 // destroy customers
 Route::delete('/customers/{id}', [CustomersController::class, 'destroy'])
 ->name('customers.destroy');
+
+// Rutas categories
+// index categories
+Route::get('/categories', [CategoriesController::class, 'index'])
+->name('categories.index');
+// store categories
+Route::post('/categories' , [categoriesController::class, 'store'])
+->name('custoemers.store');
+// show categories
+Route::get('/categories/{id}', [categoriesController::class, 'show'])
+->name('categories.show');
+// update categories
+Route::put('/categories/{id}', [categoriesController::class, 'update'])
+->name('categories.update');
+// destroy categories
+Route::delete('/categories/{id}', [categoriesController::class, 'destroy'])
+->name('categories.destroy');
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
