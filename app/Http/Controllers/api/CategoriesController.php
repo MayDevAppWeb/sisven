@@ -68,5 +68,11 @@ class CategoriesController extends Controller
     public function destroy( $id)
     {
         //
+        $categories = Sisven::find($id);
+        $categories->delete();
+        $categories = DB::table('categories')
+        ->select('categories.*')
+        ->get();
+        return json_encode(['categories'=>$categories]);
     }
 }
