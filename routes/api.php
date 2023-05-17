@@ -3,6 +3,7 @@
 use App\Http\Controllers\api\CategoriesController;
 use App\Http\Controllers\api\CustomersController;
 use App\Http\Controllers\api\PayModeController;
+use App\Http\Controllers\api\ProductsController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -68,6 +69,23 @@ Route::put('/pay_mode/{id}', [PayModeController::class, 'update'])
 // destroy pay_mode
 Route::delete('/pay_mode/{id}', [PayModeController::class, 'destroy'])
 ->name('pay_mode.destroy');
+
+// Rutas products
+// index products
+Route::get('/products', [ProductsController::class, 'index'])
+->name('products.index');
+// store products
+Route::post('/products' , [ProductsController::class, 'store'])
+->name('custoemers.store');
+// show products
+Route::get('/products/{id}', [ProductsController::class, 'show'])
+->name('products.show');
+// update products
+Route::put('/products/{id}', [ProductsController::class, 'update'])
+->name('products.update');
+// destroy products
+Route::delete('/products/{id}', [ProductsController::class, 'destroy'])
+->name('products.destroy');
 
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
