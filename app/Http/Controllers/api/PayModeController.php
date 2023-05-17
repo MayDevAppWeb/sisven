@@ -28,6 +28,13 @@ class PayModeController extends Controller
     public function store(Request $request)
     {
         //
+        $pay_mode = new Sisven();
+        $pay_mode->id = $request->id;
+        $pay_mode->name = $request->name;
+        $pay_mode->observation = $request->observation;
+        $pay_mode->created_at = $request->created_at;
+        $pay_mode->updated_at = $request->updated_at;
+        return json_encode(['pay_mode' => $pay_mode]);
     }
 
     /**
