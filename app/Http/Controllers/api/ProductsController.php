@@ -55,6 +55,16 @@ class ProductsController extends Controller
     public function update(Request $request,  $id)
     {
         //
+        $products = Sisven::find($id);
+        $products->id = $request->id;
+        $products->name = $request->name;
+        $products->price = $request->price;
+        $products->stock = $request->stock;
+        $products->category_id = $request->category_id;
+        $products->created_at = $request->created_at;
+        $products->updated_at = $request->updated_at;
+        $products->save();
+        return json_encode(['products'=>$products]);
     }
 
     /**
