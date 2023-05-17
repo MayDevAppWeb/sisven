@@ -45,6 +45,8 @@ class ProductsController extends Controller
     public function show( $id)
     {
         //
+        $products = Sisven::find($id);
+        return json_encode(['products' => $products]);
     }
 
     /**
