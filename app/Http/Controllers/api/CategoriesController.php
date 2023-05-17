@@ -42,6 +42,8 @@ class CategoriesController extends Controller
     public function show( $id)
     {
         //
+        $categories = Sisven::find($id);
+        return json_encode(['categories' => $categories]);
     }
 
     /**
