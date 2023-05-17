@@ -1,5 +1,7 @@
 <?php
 
+
+use App\Http\Controllers\api\CustomersController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -14,10 +16,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Rutas Comunas
+Route::get('/sisven', [CustomersController::class, 'index'])
+->name('customers');
 
+Route::get('/sisven', [CustomersController::class, 'index'])->name('sisven')
+;
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
@@ -28,4 +32,4 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';
