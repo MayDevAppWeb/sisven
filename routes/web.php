@@ -16,12 +16,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Rutas Comunas
-Route::get('/sisven', [CustomersController::class, 'index'])
-->name('customers');
 
-Route::get('/sisven', [CustomersController::class, 'index'])->name('sisven')
-;
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
