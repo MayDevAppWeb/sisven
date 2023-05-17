@@ -43,6 +43,8 @@ class PayModeController extends Controller
     public function show( $id)
     {
         //
+        $pay_mode = Sisven::find($id);
+        return json_encode(['pay_mode' => $pay_mode]);
     }
 
     /**
