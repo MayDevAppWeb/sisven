@@ -53,6 +53,14 @@ class PayModeController extends Controller
     public function update(Request $request,  $id)
     {
         //
+        $pay_mode = Sisven::find($id);
+        $pay_mode->id = $request->id;
+        $pay_mode->name = $request->name;
+        $pay_mode->observation = $request->observation;
+        $pay_mode->created_at = $request->created_at;
+        $pay_mode->updated_at = $request->updated_at;
+        $pay_mode->save();
+        return json_encode(['pay_mode'=>$pay_mode]);
     }
 
     /**
