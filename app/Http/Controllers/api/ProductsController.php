@@ -73,5 +73,11 @@ class ProductsController extends Controller
     public function destroy( $id)
     {
         //
+        $products = Sisven::find($id);
+        $products->delete();
+        $products = DB::table('products')
+        ->select('products.*')
+        ->get();
+        return json_encode(['products'=>$products]);
     }
 }
