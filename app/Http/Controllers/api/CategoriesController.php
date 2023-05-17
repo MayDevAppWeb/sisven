@@ -27,6 +27,13 @@ class CategoriesController extends Controller
     public function store(Request $request)
     {
         //
+        $categories = new Sisven();
+        $categories->id = $request->id;
+        $categories->name = $request->name;
+        $categories->description = $request->description;
+        $categories->created_at = $request->created_at;
+        $categories->updated_at = $request->updated_at;
+        return json_encode(['categories' => $categories]);
     }
 
     /**
